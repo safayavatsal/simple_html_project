@@ -54,6 +54,21 @@ This project demonstrates a simple CI/CD pipeline setup using Bash, Python, and 
 ### Task 6: Test the Setup
 
 1. Make a new commit and verify the changes are automatically deployed.
+2. Check if Nginx is Running with `brew services list`.
+3. Start Nginx Server (If Nginx is not running).
+4. Restart Nginx Server (useful if you've made configuration changes or deployed new code).
+5. Before restarting or starting the Nginx server, it’s a good practice to check if there are any syntax errors in the Nginx configuration files using `sudo nginx -t`. This command will test the configuration and report any errors.
+6. To diagnose issues or check what Nginx is doing, you can view the logs. The default log locations are:
+
+## Access Logs:
+    `tail -f /usr/local/var/log/nginx/access.log`
+
+## Error Logs:
+`tail -f /usr/local/var/log/nginx/error.log`
+
+The `tail -f` command will continuously display new log entries, which is useful for real-time monitoring.
+
+7. After deploying your HTML project, you can access it via your web browser. Assuming the default configuration and that your files are in /usr/local/var/www/, open your browser and go to: `http://localhost:8080`
 
 ## GitHub Repository
 
