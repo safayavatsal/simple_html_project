@@ -2,14 +2,15 @@
 
 #!/bin/zsh
 
-# Stop nginx
-sudo brew services stop nginx
+PROJECT_DIR="simple-html-project"
+REPO_URL="https://github.com/safayavatsal/simple_html_project.git"
 
-# Remove existing project directory
-sudo rm -rf /usr/local/var/www/*
+cd $PROJECT_DIR
+if [ -d "$PROJECT_DIR" ]; then
+    cd $PROJECT_DIR
+    git pull origin main
+else
+    git clone $REPO_URL
+fi
 
-# Clone the latest code
-git clone https://github.com/safayavatsal/simple_html_project.git /usr/local/var/www/
-
-# Restart nginx
-sudo brew services start nginx
+sudo nginx -s reload
