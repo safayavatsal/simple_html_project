@@ -21,7 +21,7 @@ This project demonstrates a simple CI/CD pipeline setup using Bash, Python, and 
     <!DOCTYPE html>
     <html>
     <head>
-        <title>Simple HTML Project</title>
+        <title>CI-CD Pipeline</title>
     </head>
     <body>
         <h1>Hello, World!</h1>
