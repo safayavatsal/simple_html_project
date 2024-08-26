@@ -31,6 +31,8 @@ def main():
         with open(sha_file, 'w') as file:
             file.write(latest_commit_sha)
         os.system(f'zsh {os.path.join(PROJECT_DIR, "deploy.sh")}')
+    else:
+    print("No new commits.")
 
 if __name__ == "__main__":
     if not os.path.exists(PROJECT_DIR):
