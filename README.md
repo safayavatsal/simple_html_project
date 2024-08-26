@@ -29,27 +29,49 @@ This project demonstrates a simple CI/CD pipeline setup using Bash, Python, and 
     </html>
     ```
 
+
 2. Initialize a Git repository and push to GitHub.
 
 ### Task 2: Set Up Local Nginx Instance on macOS using zsh Terminal
 
 1. Install Homebrew (if not already installed).
 2. Install Nginx using Homebrew with `brew install nginx`.
-3. Start Nginx with `sudo brew services start nginx`.
-4. Stop Nginx (if needed) with `sudo brew services stop nginx`.
-5. Restart Nginx with `sudo brew services restart nginx`.
+3. Configure Ngnx: `sudo vim /etc/nginx/sites-available/default`
+4. Replace the content with
+```server {
+    listen 80;
+    server_name localhost;
+
+    location / {
+        root /var/www/html;
+        index index.html;
+    }
+}
+```
+
+5. Start Nginx with `sudo brew services start nginx`.
+6. Stop Nginx (if needed) with `sudo brew services stop nginx`.
+7. Restart Nginx with `sudo brew services restart nginx`.
+
 
 ### Task 3: Write a Python Script to Check for New Commits
 
 1. Create `check_commits.py` to check for new commits using the GitHub API.
+2. Execute using `chmod +x check_commits.py`
+
 
 ### Task 4: Write a zsh Script to Deploy the Code
 
 1. Create `deploy.sh` to clone the latest code and restart Nginx.
+2. Execute using `chmod +x deploy.sh`
+
 
 ### Task 5: Set Up a Cron Job to Run the Python Script
 
 1. Create a cron job to run `check_commits.py` every minute.
+2. Edit cron jobs `crontab -e`
+3. Add cron jobs `* * * * * /path/to/python3 /path/to/check_commits.py && /path/to/deploy.sh`
+
 
 ### Task 6: Test the Setup
 
